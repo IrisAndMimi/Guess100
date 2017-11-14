@@ -9,13 +9,19 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import static guess100.iris.com.guess100.R.id.secret;
+
 public class MainActivity extends AppCompatActivity {
     int SecNum = new Random().nextInt(100)+1;
+    String SecN = String.valueOf(SecNum);
+    TextView Sec = (TextView) findViewById(secret);
+    secret.setText(Sec.getString(SecN));
+
     View.OnClickListener findViews= new View.OnClickListener() {
         public void onClick(View view) {
             EditText UsrG = (EditText) findViewById(R.id.number);
             TextView Tit = (TextView) findViewById(R.id.info);
-            TextView Sec = (TextView) findViewById(R.id.secret);
+            TextView Sec = (TextView) findViewById(secret);
         }
     }
     @Override
@@ -26,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
         Send.setOnClickListener(findViews);
     }
 
-//    public void findViews(View view){
-//        EditText UsrG = (EditText)findViewById(R.id.number);
-//        TextView Tit = (TextView)findViewById(R.id.info);
-//        TextView Sec = (TextView)findViewById(R.id.secret);
+    public void guess100(View view){
+        int SecNum = new Random().nextInt(100)+1;
+        String SecN = String.valueOf(SecNum);
+        TextView Sec = (TextView) findViewById(secret);
+        secret.setText(Sec.getString(SecN));
+        
 
     }
 
